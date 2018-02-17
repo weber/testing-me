@@ -1,5 +1,7 @@
 # Запуск 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/weber/testing-me.svg)](https://greenkeeper.io/)
+
 В консоле
 ```
 // установка модулей
