@@ -1,0 +1,7 @@
+node_modules
+.idea
+.history/
+logs/
+/logs/*
+!/logs/README.md
+/vendor/

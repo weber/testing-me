@@ -1,0 +1,30 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["eslint:recommended", "yandex"],
+    "plugins": [
+        "security",
+        "import"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "mocha": true,
+        "jquery": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "rules": {
+        "new-cap": ["off", { "capIsNewExceptions": ["Feature", "Scenario"] }],
+        "no-actor-in-scenario": 0,
+        "no-console": "off",
+        "space-before-function-paren": [2,{"anonymous":"always","named":"always","asyncArrow":"always"}]
+    },
+    "settings": {
+    }
+}

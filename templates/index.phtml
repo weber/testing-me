@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Slim 3</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link href='/styles/main.css' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+
+        <section class="b-wrapper">
+            <div class="b-cnt">
+
+
+                <table class="b-table">
+                    <thead>
+                        <tr data-bind="css: selectCol">
+                            <th class="b-col-1"><a class="b-link_btn js-sort"  data-bind="{css: orderDate, click: function(){orderBy('Date')}}" >дата/время</a></th>
+                            <th>изображение</th>
+                            <th><a class="b-link_btn js-sort"  data-bind="{css: orderTitle, click: function(){orderBy('Title')}}" >заголовок</a></th>
+                            <th>описание</th>
+                            <th>ссылка</th>
+                        </tr>
+                    </thead>
+                   
+                    <?php  // foreach ($news as $index =>$item):?>
+                    <tbody data-bind="foreach: dataNews">
+                    <tr data-bind="{css2: $parent.selectCol, clickHandler: { click: $parent.selectRowHandler, dblclick: $parent.showNews }, css: {selectRow: isSelectRow}}">
+                        
+                        <td data-bind="text: $parent.formatDate(datetime, true)"></td> 
+                        <td><img data-bind="attr: { src: image}" alt="" class="b-image"></td>
+                        <td data-bind="text: title"></td>
+                        <td data-bind="text: desc"></td>
+                        <td><a  data-bind="attr: { href: link}" target="_blank" class="b-link">открыть</a></td>
+
+                    </tr>
+                    </tbody>
+                    <?php // endforeach;?>
+                </table>
+                <div class="b-btn_wrap">
+                    <button class="b-btn--update" data-bind="click: function(){updateData()}" >Обновления</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="b-modal" data-bind="visible: hasShowModal">
+            <div class="b-modal__head">
+                <a class="b-modal__head__close" data-bind="clickHandler: { click: hideNews}"></a>
+            </div>
+            <div class="b-modal__cnt">
+                <div class="b-modal__cnt__item">
+                    <time class="b-modal__cnt__date" data-bind="attr: {datetime: modalDatetime}, text: modalDatetimeStr"></time>
+                </div>
+                <div class="b-modal__cnt__item">
+                    <img class="b-modal__cnt__image" data-bind="attr: {src: modalImage}" alt="">
+                </div>
+                <div class="b-modal__cnt__item">
+                    <h1 class="b-modal__cnt__title" data-bind="text: modalTitle"></h1>
+                    <article class="b-modal__cnt__text" data-bind="html: modalText"></article>
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="css: isLock">
+           <div class="b-loaded__wrap" data-bind="visible: isLoaded">
+                <div class="b-loaded"></div>
+           </div>
+        </div>
+
+        <script src='/js/vendor/knockout-3.4.2.js'></script>
+        <script src='/js/vendor/ramda.min.js'></script>
+        <script src='/js/main.js'></script>
+    </body>
+</html>
+
+
