@@ -23,3 +23,5 @@ $ php -S localhost:8080 -t public public/index.php
 # Примечание
 
  Коссбраузерность не учитывалась.
+ 
+ [![Greenkeeper badge](https://badges.greenkeeper.io/weber/testing-me.svg)](https://greenkeeper.io/)
